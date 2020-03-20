@@ -1,4 +1,5 @@
 import React from 'react';
+import AppRouter from './routers/AppRouter';
 import './App.css';
 
 class App extends React.Component{
@@ -8,7 +9,7 @@ class App extends React.Component{
   render(){
       return(
         <>
-        <h1>This is Comic Book Review Corner App</h1>
+          <AppRouter />
         </>
     );
   };
