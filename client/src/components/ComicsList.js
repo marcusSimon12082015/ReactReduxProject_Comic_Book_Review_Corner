@@ -1,26 +1,28 @@
 import React from 'react';
+import ComicItem from './ComicItem';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import ComicItem from './ComicItem';
 
-const ComicsList = ({comics}) =>
-{
+class ComicsList extends React.Component {
+  render(){
     return(
       <Row>
-      {comics.length === 0 ?
-          (<p>No Comics to display</p>
+          {this.props.comics.length === 0 ? (
+            <p>No Comics to display</p>
           )
           :
           (
-            comics.map((comic) => {
+            this.props.comics.map((comic) => {
               return <Col sm={4} key={comic.id}>
-                <ComicItem key={comic.id} {...comic} />
-              </Col>
+                <ComicItem
+                  key={comic.id}
+                  {...comic}/></Col>
             })
           )
         }
-        </Row>
+      </Row>
     )
+  }
 }
 
 export default ComicsList;

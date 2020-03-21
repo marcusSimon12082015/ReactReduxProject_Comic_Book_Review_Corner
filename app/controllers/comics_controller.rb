@@ -2,7 +2,6 @@ class ComicsController < ApplicationController
   before_action :set_comic, only:[:show]
 
   def index
-    #byebug
     @comics = Comic.all
     render json: {comics: @comics.as_json(include: :publisher)}
   end
