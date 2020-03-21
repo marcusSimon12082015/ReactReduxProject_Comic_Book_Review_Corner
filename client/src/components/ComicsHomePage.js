@@ -19,14 +19,14 @@ const ComicsHomePage = () => {
       dispatch(startSetComics())
       .then(() => {
         console.log("Comics fetched!");
-      });
-      dispatch(startSetPublishers())
-      .then(() => {
-        console.log("Publisher fetched!");
-      });
-      dispatch(startSetCharacters())
-      .then(() => {
-        console.log("Characters fetched!");
+        dispatch(startSetPublishers())
+        .then(() => {
+          console.log("Publisher fetched!");
+          dispatch(startSetCharacters())
+          .then(() => {
+            console.log("Characters fetched!");
+          });
+        });
       });
     },[dispatch]);
     return(
