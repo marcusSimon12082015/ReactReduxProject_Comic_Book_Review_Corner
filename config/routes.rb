@@ -3,4 +3,5 @@ Rails.application.routes.draw do
   resources :comics, only:[:index,:show]
   resources :publishers, only:[:index,:show]
   resources :characters, only:[:index,:show]
+  resources :reviews, only:[:index,:show]
 end
