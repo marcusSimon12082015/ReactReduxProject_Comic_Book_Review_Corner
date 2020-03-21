@@ -16,6 +16,7 @@ const ReviewsPage = () => {
   },[dispatch]);
   return(
     <Container fluid>
+      <h1>Reviews Page</h1>
       <div className="review-page">
         <ReviewsList reviews={reviews}/>
       </div>

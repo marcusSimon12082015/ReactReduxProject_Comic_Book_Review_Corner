@@ -1,2 +1,27 @@
 @import '~bootstrap/scss/bootstrap';
 @import "components";
+
+#root
+{
+  margin:0;
+  padding:0;
+  box-sizing: border-box;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.7;
+  color:#777;
+}
+
+
+$theme-colors:(
+  "color-1":#8d8741,
+  "color-2":#659dbd,
+  "color-3":#daad86,
+  "color-4":#bc986a,
+  "color-5":#fbeec1
+);
+
+
+.review-page{
+  background-color: theme-color("color-2");
+}
