@@ -1,6 +1,7 @@
 import React from 'react';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import ComicItem from './ComicItem';
 
 const ComicsList = ({comics}) =>
 {
@@ -21,3 +22,5 @@ const ComicsList = ({comics}) =>
         </Row>
     )
 }
+
+export default ComicsList;
