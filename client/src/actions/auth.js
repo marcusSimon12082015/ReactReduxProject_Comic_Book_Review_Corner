@@ -141,3 +141,16 @@ export const startAddComicToUser = (comicId) => {
     })
   };
 }
+
+export const addComicFailed = (error) => ({
+  type:'ADD_COMIC_FAILED',
+  payload:error
+});
+export const addComicWarning = (warning) => ({
+  type:'ADD_COMIC_WARNING',
+  payload:warning
+});
+export const addComicSuccess = (success) => ({
+  type:'ADD_COMIC_SUCCESS',
+  payload:success
+});

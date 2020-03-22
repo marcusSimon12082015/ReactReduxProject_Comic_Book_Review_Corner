@@ -56,13 +56,38 @@ export default (state = initialState, action) => {
         }
       }
     case 'REGISTRATION_SUCCESS':
-    return{
-      ...state,
-      messages:{
-        ...state.messages,
-        registrationError:''
+      return{
+        ...state,
+        messages:{
+          ...state.messages,
+          registrationError:''
+        }
       }
-    }
+    case 'ADD_COMIC_SUCCESS':
+      return{
+        ...state,
+        messages:{
+          ...state.messages,
+          success:action.payload.success
+        },
+        user:action.payload.user
+      }
+    case 'ADD_COMIC_WARNING':
+      return{
+        ...state,
+        messages:{
+          ...state.messages,
+          warning:action.payload.warning
+        }
+      }
+    case 'ADD_COMIC_FAILED':
+      return{
+        ...state,
+        messages:{
+          ...state.messages,
+          error:action.payload.error
+        }
+      }
     default:
       return state;
   }
