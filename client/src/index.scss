@@ -93,7 +93,62 @@ $theme-colors:(
   background-color: theme-color("color-4");
 }
 
+//Comic show container
+.comic-show-container
+{
+  color:#fff;
+  background-color: theme-color("color-2");
+  display: flex;
+  justify-content: center;
+  width:100%;
+  height: 90vh;
+  &__description{
+    width: 95%;
+    height: 300px;
+    margin-bottom: 15px;
+    overflow: auto;
+    background-color: theme-color("color-4");
+  }
+  &__image > img{
+    max-width:400px;
+  }
+  button{
+    background-color: theme-color("color-4");
+    border-radius: 25px;
+    color:#fff;
+  }
+}
+
 
 .review-page{
   background-color: theme-color("color-2");
+}
+
+.comic-page{
+  background-color: theme-color("color-2");
+  padding:10px;
+  min-height: 500px;
+  min-width: 95%;
+  & > h2{
+    color:#fff;
+  }
+  & > div > p{
+    color:#fff;
+    padding: 10px;
+  }
+}
+.profile-header{
+  display: flex;
+  justify-content: space-between;
+  font-size: 20px;
+  font-weight: bold;
+  &__item_username{
+    width: 350px;
+    height: 50px;
+  }
+  &__item_credits{
+    width: 350px;
+    height: 50px;
+    text-align: right;
+  }
 }
