@@ -1,6 +1,10 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { startLogin } from '../actions/auth';
+import { cleanLoginMessages } from '../actions/auth';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
+import validator from 'validator';
 
 class LoginForm extends React.Component {
   state = {
@@ -8,9 +12,27 @@ class LoginForm extends React.Component {
       password:"",
       loginError:""
   }
+  componentWillUnmount(){
+    this.props.cleanLoginMessages()
+  }
+
   handleFormSubmit = (e) => {
     e.preventDefault();
   }
+  validateOnFormSubmit = () => {
+    if (!this.state.email || !this.state.password) {
+      this.setState(() => ({loginError: 'Please provide email and password.'}))
+      return false;
+    }else if(this.state.email && !validator.isEmail(this.state.email)){
+      this.setState(() => ({loginError: 'Email format is invalid!'}))
+      return false;
+    }
+    if (this.state.error !== undefined) {
+      this.setState(() => ({ loginError: '' }))
+    }
+    return true;
+  }
+
 onChange = (e) => {
   this.setState({
     [e.target.name]:e.target.value
@@ -32,7 +54,16 @@ onChange = (e) => {
         Login
       </Button>
     </Form>
-  );
+    );
+  };
 };
+const mapDispatchToProps = dispatch => ({
+  startLogin: user => dispatch(startLogin(user)),
+  cleanLoginMessages: () => dispatch(cleanLoginMessages())
+});
 
-};
+const mapStateToProps = state => ({
+  respondError: state.auth.messages.loginError
+});
+
+export default connect(mapStateToProps,mapDispatchToProps)(LoginForm);
