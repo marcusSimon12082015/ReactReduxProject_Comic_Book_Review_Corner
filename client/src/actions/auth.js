@@ -117,3 +117,27 @@ export const registrationSuccess = () => ({
 export const cleanRegistrationMessages = () => ({
   type:'CLEAN_REGISTRATION_MESSAGES'
 });
+
+//Adding comics for user
+export const startAddComicToUser = (comicId) => {
+  return dispatch => {
+    return fetch("http://localhost:3001/user_comics/add_comic_to_user/"+comicId,{
+      method:'GET',
+      credentials:'include',
+      headers:{
+        'Content-Type': 'application/json',
+         Accept: 'application/json'
+      }
+    })
+    .then((response) => response.json())
+    .then((data) => {
+      if (data.user) {
+        dispatch(addComicSuccess(data))
+      }else if(data.warning){
+        dispatch(addComicWarning(data))
+      }else{
+        dispatch(addComicFailed(data))
+      }
+    })
+  };
+}
