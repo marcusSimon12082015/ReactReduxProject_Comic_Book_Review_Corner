@@ -6,6 +6,7 @@ const Header = props => {
   return(
     <header className="header">
       <span><NavLink to="/">ComicBook Review</NavLink></span>
+      <nav className="navigation">
       <ul>
         <li>
           <Button variant="top" size="lg">Login</Button>
@@ -16,6 +17,7 @@ const Header = props => {
         </NavLink>
         </li>
       </ul>
+      </nav>
     </header>
   );
 };

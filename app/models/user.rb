@@ -1,4 +1,6 @@
-class User < ApplicationRecord 
+class User < ApplicationRecord
+  has_secure_password
+
   #associations
    has_many :user_comics
    has_many :comicsofUser, :through => :user_comics, :source => 'comic'
