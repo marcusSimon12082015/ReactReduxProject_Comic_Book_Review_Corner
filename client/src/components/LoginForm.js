@@ -18,6 +18,24 @@ class LoginForm extends React.Component {
 
   handleFormSubmit = (e) => {
     e.preventDefault();
+    let isValid = this.validateOnFormSubmit();
+    if (isValid) {
+      //validation passes send to server
+     console.log(this.state);
+     this.props.startLogin({
+       email: this.state.email,
+       password: this.state.password
+     })
+     .then(() => {
+       //if respondError exists there was an error so we
+       //set form error to respondError - UGLY HACKING
+       if (this.props.respondError !== "") {
+         this.setState(() => ({loginError:  this.props.respondError}))
+       }else{
+         this.props.onLoginSucces();
+       }
+     });
+   }
   }
   validateOnFormSubmit = () => {
     if (!this.state.email || !this.state.password) {
@@ -33,11 +51,11 @@ class LoginForm extends React.Component {
     return true;
   }
 
-onChange = (e) => {
-  this.setState({
-    [e.target.name]:e.target.value
-  })
-}
+  onChange = (e) => {
+    this.setState({
+      [e.target.name]:e.target.value
+    })
+  }
   render() {
   return(
     <Form onSubmit={this.handleFormSubmit}>
