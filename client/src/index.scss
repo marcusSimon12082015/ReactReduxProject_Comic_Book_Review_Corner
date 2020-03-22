@@ -21,6 +21,33 @@ $theme-colors:(
   "color-5":#fbeec1
 );
 
+.error_class{
+  padding: 5px;
+  color:#fff;
+  background-color: #d9534f;
+}
+.btn-login
+{
+    background-color: theme-color("color-2");
+}
+
+.header
+{
+  justify-content:space-between;
+  display:flex;
+  align-items: center;
+  background-color: theme-color("color-4");
+  padding-left: 1rem;
+  font-size:3rem;
+  height:5rem;
+}
+.header span a
+{
+    color:#fff;
+    text-decoration: none;
+    text-transform: capitalize;
+}
+
 
 .review-page{
   background-color: theme-color("color-2");
