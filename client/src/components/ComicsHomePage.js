@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import Container from 'react-bootstrap/Container';
+import CoverComponent from './CoverComponent';
 import ComicsList from './ComicsList';
 import PublishersList from './PublishersList';
 import CharactersList from './CharactersList';
@@ -31,6 +32,7 @@ const ComicsHomePage = () => {
     },[dispatch]);
     return(
       <>
+      <CoverComponent></CoverComponent>
       <Container fluid>
         <h1>Latest Comics</h1>
           <ComicsList comics={comics}/>
