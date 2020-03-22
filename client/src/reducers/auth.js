@@ -88,6 +88,16 @@ export default (state = initialState, action) => {
           error:action.payload.error
         }
       }
+    case 'DELETE_FLASH_MESSAGES':
+    return{
+      ...state,
+      messages:{
+        ...state.messages,
+        error:'',
+        success:'',
+        warning:''
+      }
+    }
     default:
       return state;
   }

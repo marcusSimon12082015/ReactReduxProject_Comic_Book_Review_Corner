@@ -154,3 +154,6 @@ export const addComicSuccess = (success) => ({
   type:'ADD_COMIC_SUCCESS',
   payload:success
 });
+export const deleteFlashMessages = () => ({
+  type:'DELETE_FLASH_MESSAGES'
+})
