@@ -10,7 +10,20 @@ const ProfilePage = props => {
   const user = useSelector(state => state.auth.user);
     return(
       <Container fluid style={{ backgroundColor: '#fbeec1' }}>
-
+        <Row>
+          <div className="profile-header">
+            <div className="profile-header__item_username">
+              User Profile - {user.email}
+            </div>
+            <div className="profile-header__item_credits">
+              Remaning Credits: {user.credits}
+            </div>
+          </div>
+          <div className="comic-page">
+            <h2>My Comics:</h2>
+            <ComicsList comics={user.comicsofUser}/>
+          </div>
+       </Row>
       </Container>
     )
 };
