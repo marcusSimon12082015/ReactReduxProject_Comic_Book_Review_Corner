@@ -6,6 +6,8 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+user1 = User.create(email:"matija@email.com",password:"12345678")
+
 #Creating Publishers
 marvel = Publisher.create(name:'Miracles');
 dc = Publisher.create(name:'DOUG Comics');
@@ -65,3 +67,15 @@ lucy = Artist.create(name:'Lucy',surname:'Lu',biography:'Fun',type:letterer)
 frank = Artist.create(name:'Frank',surname:'Lith',biography:'Fun',type:writer)
 lit = Artist.create(name:'Lit',surname:'Hawk',biography:'Fun',type:editor)
 joe = Artist.create(name:'Joe',surname:'Frjk',biography:'Fun',type:assistantEditor)
+
+##adding comics to users
+user1.comicsofUser << [xmenComic,supermanComic,spidermanComic,xmen2Comic]
+##create reviews
+Review.create(title:'Less-Man is cool',comic:xmenComic,user:user1,
+          content:'My first time reading Less man!')
+Review.create(title:'Silence is the best',comic:supermanComic,user:user1,
+          content:'Silent Man is a favorite of mine!')
+Review.create(title:'Sooo good',comic:spidermanComic,user:user1,
+          content:'We win this time!')
+Review.create(title:'Less-man is full of potential',comic:xmen2Comic,user:user1,
+          content:'even better then the first issue!')                    
