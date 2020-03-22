@@ -1,12 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 import { LoginModal } from './LoginModal';
 
-const Header = props => {
-  const handleModalOpen = () => {
 
+const Header = props => {
+  const [modalOpen,setModalState] = useState(false)
+
+  const handleModalOpen = () => {
+    setModalState(true)
   }
+
+  const handleModalClose = () => {
+    setModalState(false)
+  }
+  
   return(
     <header className="header">
       <span><NavLink to="/">ComicBook Review</NavLink></span>
