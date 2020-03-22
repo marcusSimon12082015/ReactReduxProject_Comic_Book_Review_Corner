@@ -139,3 +139,27 @@
     color: #fff;
   }
 }
+
+//Flash message component
+.flash_message{
+  width:100%;
+  color:#fff;
+  z-index: 10;
+  position:absolute;
+  top:0;
+  left:0;
+  display: block;
+  font-weight: bold;
+  font-size: 20px;
+  &__error{
+    background-color: red;
+  }
+  &__warning{
+    background-color: #fff3cd;
+    color:brown;
+  }
+  &__success{
+    background-color: #228B22;
+  }
+}
+//////////////////////////////////////////////////////////////////////////////
