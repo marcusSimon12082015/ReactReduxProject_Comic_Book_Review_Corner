@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, withRouter } from 'react-router-dom';
 import { startLogout } from '../actions/auth';
 import { useSelector, useDispatch } from 'react-redux';
 import Button from 'react-bootstrap/Button';
@@ -20,20 +20,38 @@ const Header = props => {
     setModalState(false)
   }
 
+  const handleLogout = (e) => {
+    e.preventDefault();
+    dispatch(startLogout())
+    props.history.push('/')
+  }
+
   return(
     <header className="header">
       <span><NavLink to="/">ComicBook Review</NavLink></span>
       <nav className="navigation">
-      <ul>
-        <li onClick={handleModalOpen}>
-          <Button variant="top" size="lg">Login</Button>
-        </li>
-        <li>
-        <NavLink to="/signup">
-            <Button variant="danger" size="lg">Sign up</Button>
-        </NavLink>
-        </li>
-      </ul>
+      {isAuthenticated === false ?
+        (
+          <ul>
+            <li onClick={handleModalOpen}>
+              <Button variant="info" size="lg">Login</Button>
+            </li>
+            <li>
+              <NavLink to="/signup">
+                <Button variant="danger" size="lg">Sign up</Button>
+              </NavLink>
+            </li>
+          </ul>
+        ):(
+          <ul className="logged_in">
+            <li>
+              <NavLink to={`/profile/${user.id}`}>Profile</NavLink>
+            </li>
+            <li>
+              <button onClick={handleLogout}>Logout</button>
+            </li>
+          </ul>
+        )}
       </nav>
       <LoginModal modalOpen={modalOpen} handleModalOpen={handleModalOpen}
         handleModalClose={handleModalClose}/>
@@ -41,4 +59,4 @@ const Header = props => {
   );
 };
 
-export default Header;
+export default withRouter(Header);
