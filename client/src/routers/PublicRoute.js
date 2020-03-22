@@ -7,6 +7,7 @@ const PublicRoute = ({
   <Route {...rest} render={props => (
     <Layout>
       <Component {...props} />
+    </Layout>
   )}
   />
 );
