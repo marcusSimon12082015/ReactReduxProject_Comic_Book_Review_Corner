@@ -37,6 +37,30 @@ export default (state = initialState, action) => {
             loginError:''
           }
         }
+      case 'CLEAN_REGISTRATION_MESSAGES':
+        return{
+          ...state,
+          messages:{
+            ...state.messages,
+            registrationError:''
+          }
+        }
+      case 'REGISTRATION_FAILED':
+        return{
+          ...state,
+          messages:{
+            ...state.messages,
+            registrationError:action.payload
+          }
+        }
+      case 'REGISTRATION_SUCCESS':
+      return{
+        ...state,
+        messages:{
+          ...state.messages,
+          registrationError:''
+        }
+      }
       default:
         return state;
     }

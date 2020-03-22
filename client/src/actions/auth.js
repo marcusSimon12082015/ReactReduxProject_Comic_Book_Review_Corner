@@ -53,3 +53,37 @@ export const cleanLoginMessages = () => ({
   type:'CLEAN_LOGIN_MESSAGES'
 });
 ///////////////////////////////////////////////////////////////////////////////
+//Registration part
+export const startRegistration = (user) => {
+  return dispatch => {
+    return fetch("http://localhost:3001/registrations",{
+      method:'POST',
+      credentials:'include',
+      headers:{
+        'Content-Type': 'application/json',
+         Accept: 'application/json'
+      },
+      body:JSON.stringify({user})
+    })
+    .then((response) => response.json())
+    .then((data) => {
+      if (data.status === "created") {
+        dispatch(registrationSuccess())
+        dispatch(login(data.user))
+      }else{
+        dispatch(registrationFailed(data.error))
+      }
+    })
+  };
+};
+
+export const registrationFailed = (error) => ({
+  type:'REGISTRATION_FAILED',
+  payload:error
+});
+export const registrationSuccess = () => ({
+  type:'REGISTRATION_SUCCESS',
+});
+export const cleanRegistrationMessages = () => ({
+  type:'CLEAN_REGISTRATION_MESSAGES'
+});
