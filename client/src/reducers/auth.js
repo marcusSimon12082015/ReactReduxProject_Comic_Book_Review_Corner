@@ -29,31 +29,17 @@ export default (state = initialState, action) => {
           loginError:action.payload,
         }
       };
-      case 'CLEAN_LOGIN_MESSAGES':
-        return{
-          ...state,
-          messages:{
-            ...state.messages,
-            loginError:''
-          }
+    case 'LOGOUT':
+      return initialState;
+    case 'CLEAN_LOGIN_MESSAGES':
+      return{
+        ...state,
+        messages:{
+          ...state.messages,
+          loginError:''
         }
-      case 'CLEAN_REGISTRATION_MESSAGES':
-        return{
-          ...state,
-          messages:{
-            ...state.messages,
-            registrationError:''
-          }
-        }
-      case 'REGISTRATION_FAILED':
-        return{
-          ...state,
-          messages:{
-            ...state.messages,
-            registrationError:action.payload
-          }
-        }
-      case 'REGISTRATION_SUCCESS':
+      }
+    case 'CLEAN_REGISTRATION_MESSAGES':
       return{
         ...state,
         messages:{
@@ -61,7 +47,23 @@ export default (state = initialState, action) => {
           registrationError:''
         }
       }
-      default:
-        return state;
+    case 'REGISTRATION_FAILED':
+      return{
+        ...state,
+        messages:{
+          ...state.messages,
+          registrationError:action.payload
+        }
+      }
+    case 'REGISTRATION_SUCCESS':
+    return{
+      ...state,
+      messages:{
+        ...state.messages,
+        registrationError:''
+      }
     }
-  };
+    default:
+      return state;
+  }
+};

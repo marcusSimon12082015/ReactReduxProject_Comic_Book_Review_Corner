@@ -52,6 +52,36 @@ export const checkLoginStatus = () => {
 export const cleanLoginMessages = () => ({
   type:'CLEAN_LOGIN_MESSAGES'
 });
+
+//Logout part
+export const logout = () => ({
+  type: 'LOGOUT'
+});
+
+export const startLogout = () => {
+  return dispatch => {
+    return fetch("http://localhost:3001/logout",{
+      method:'DELETE',
+      credentials:'include',
+      headers:{
+        'Content-Type': 'application/json',
+         Accept: 'application/json'
+      }
+    })
+    .then((response) => {
+      console.log(response);
+      return response.json();
+    })
+    .then((data) => {
+      console.log(data);
+      if (data.logged_out) {
+        dispatch(logout())
+      }
+    })
+  };
+};
+//////////////////////////////////////////////////////////////////////////////////
+
 ///////////////////////////////////////////////////////////////////////////////
 //Registration part
 export const startRegistration = (user) => {
