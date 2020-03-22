@@ -1,11 +1,16 @@
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
+import { startLogout } from '../actions/auth';
+import { useSelector, useDispatch } from 'react-redux';
 import Button from 'react-bootstrap/Button';
 import { LoginModal } from './LoginModal';
 
 
 const Header = props => {
   const [modalOpen,setModalState] = useState(false)
+  const isAuthenticated = useSelector(state => !!state.auth.logged_in)
+  const user = useSelector(state => state.auth.user)
+  const dispatch = useDispatch()
 
   const handleModalOpen = () => {
     setModalState(true)
@@ -14,7 +19,7 @@ const Header = props => {
   const handleModalClose = () => {
     setModalState(false)
   }
-  
+
   return(
     <header className="header">
       <span><NavLink to="/">ComicBook Review</NavLink></span>
