@@ -29,6 +29,14 @@ export default (state = initialState, action) => {
           loginError:action.payload,
         }
       };
+      case 'CLEAN_LOGIN_MESSAGES':
+        return{
+          ...state,
+          messages:{
+            ...state.messages,
+            loginError:''
+          }
+        }
       default:
         return state;
     }
