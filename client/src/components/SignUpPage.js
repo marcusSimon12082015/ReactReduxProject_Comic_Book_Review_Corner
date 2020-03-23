@@ -46,7 +46,7 @@ class SignUpPage extends React.Component {
     }else if(this.state.password !== this.state.password_confirmation){
       this.setState(() => ({registrationError: 'Passwords must match!'}))
       return false;
-    }else if(this.state.password < 8 || this.state.password < 8){
+    }else if(this.state.password.length < 8){
       this.setState(() => ({registrationError: 'Password at least 8 characters long!'}))
       return false;
     }
