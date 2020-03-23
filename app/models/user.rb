@@ -13,6 +13,8 @@ class User < ApplicationRecord
    validates_presence_of :email
    validates_uniqueness_of :email
 
+   validates :password, format: /\A(?=.{8,})
+
    def add_comic_to_user(comic)
      if self.credits >= comic.price.to_i
        self.comicsofUser << comic
