@@ -43,6 +43,12 @@ class SignUpPage extends React.Component {
     }else if(this.state.email && !validator.isEmail(this.state.email)){
       this.setState(() => ({registrationError: 'Email format is invalid!'}))
       return false;
+    }else if(this.state.password !== this.state.password_confirmation){
+      this.setState(() => ({registrationError: 'Passwords must match!'}))
+      return false;
+    }else if(this.state.password < 8 || this.state.password < 8){
+      this.setState(() => ({registrationError: 'Password at least 8 characters long!'}))
+      return false;
     }
     if (this.state.error !== undefined) {
       this.setState(() => ({ registrationError: '' }))
