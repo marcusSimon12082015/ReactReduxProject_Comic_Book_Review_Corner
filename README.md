@@ -4,10 +4,10 @@ This is a Rails, React, Redux application for buying comic books and sharing opi
 
 ## Installation
 
-  Fork this repository and clone it.
-  Run bundle install and rake db:migrate and rake db:seed for starting data.
-  Run npm install in /client directory to install dependencies for the application.
-  Run rake start to star the app.
+  Fork this repository and clone it.<br />
+  Run bundle install and rake db:migrate and rake db:seed for starting data.<br />
+  Run npm install in /client directory to install dependencies for the application.<br />
+  Run rake start to start the app.
 
 ## Contributing
 
