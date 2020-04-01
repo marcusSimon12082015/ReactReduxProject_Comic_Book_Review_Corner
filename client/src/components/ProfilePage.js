@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import ComicsList from './ComicsList';
+import List from './List';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 
@@ -21,7 +21,7 @@ const ProfilePage = props => {
           </div>
           <div className="comic-page">
             <h2>My Comics:</h2>
-            <ComicsList comics={user.comicsofUser}/>
+            <List list={user.comicsofUser} component="comic"/>
           </div>
        </Row>
       </Container>

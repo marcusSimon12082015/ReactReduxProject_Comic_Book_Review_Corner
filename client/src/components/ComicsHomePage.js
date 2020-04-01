@@ -2,9 +2,7 @@ import React, { useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import Container from 'react-bootstrap/Container';
 import CoverComponent from './CoverComponent';
-import ComicsList from './ComicsList';
-import PublishersList from './PublishersList';
-import CharactersList from './CharactersList';
+import List from './List';
 import { startSetComics } from '../actions/comics';
 import { startSetPublishers } from '../actions/publishers';
 import { startSetCharacters } from '../actions/characters';
@@ -35,13 +33,13 @@ const ComicsHomePage = () => {
       <CoverComponent></CoverComponent>
       <Container fluid>
         <h1>Latest Comics</h1>
-          <ComicsList comics={comics}/>
+          <List list={comics} component="comic" />
           <NavLink to="/comics">See all Comics</NavLink>
         <h1>Publishers</h1>
-          <PublishersList publishers={publishers}/>
+          <List list={publishers} component="publisher" />
           <NavLink to="/publishers">See all Publishers</NavLink>
         <h1>Characters</h1>
-          <CharactersList  characters={characters}/>
+          <List list={characters} component="character" />
           <NavLink to="/characters">See all Characters</NavLink>
       </Container>
       </>
